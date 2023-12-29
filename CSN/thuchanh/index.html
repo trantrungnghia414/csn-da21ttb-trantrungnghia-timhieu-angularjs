@@ -35,7 +35,6 @@
         <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
         <script src="./asess/js/main.js"></script>
-        <!-- Thêm vào phần head của file index.html -->
         <script>
             // Kiểm tra nếu có thông báo từ URL thì hiển thị
             window.onload = function () {
@@ -165,13 +164,20 @@
                                         <i class="bx bx-search"></i>
                                     </button>
                                 </form>
-                                <button
+                                <!-- <button
                                     class="btn btn-outline-success my-2 my-sm-0 dangnhap"
                                 >
                                     <a href="./php/admin/index.php"
                                         >Đăng nhập</a
                                     >
-                                </button>
+                                </button> -->
+                                <a href="./php/admin/index.php">
+                                    <button
+                                        class="btn btn-outline-success my-2 my-sm-0 dangnhap"
+                                    >
+                                        Đăng nhập
+                                    </button>
+                                </a>
                             </div>
                         </nav>
                     </div>
@@ -374,7 +380,11 @@
         <footer>
             <p>
                 Copyright &copy; 2023
-                <img src="./asess/img/TRUNG NGHIA STORE.png" alt="logo" />
+                <img
+                    class="logo-footer"
+                    src="./asess/img/TRUNG NGHIA STORE.png"
+                    alt="logo"
+                />
                 Cửa hàng bán lẻ toàn quốc.
             </p>
         </footer>

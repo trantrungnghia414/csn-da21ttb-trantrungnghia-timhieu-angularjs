@@ -39,15 +39,10 @@ app.controller("LocsanphamController", function ($scope, $http) {
         .then(
             function (response) {
                 console.log(response);
-                // Kiểm tra phản hồi từ server
-                // if (response.data.status === "success") {
                 // Lấy dữ liệu lọc được từ server
                 $scope.filteredPhones = response.data;
 
-                // In ra console để kiểm tra
                 console.log("$scope.filteredPhones:", $scope.filteredPhones);
-                // } else {
-                // }
             },
             function (error) {
                 // Xử lý lỗi khi gửi yêu cầu

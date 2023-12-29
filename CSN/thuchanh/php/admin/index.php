@@ -14,7 +14,7 @@ if(isset($_POST['uname']) && isset($_POST['pswd'])) {
     if ($result->num_rows > 0) {
         // Đăng nhập thành công, chuyển hướng đến trang admin.php
         // header("Location: admin.php");
-        echo '<script>alert("Đăng nhập thành công!"); window.location.href = "admin.php";</script>';
+        echo '<script>alert("Đăng nhập tài khoảng admin thành công!"); window.location.href = "admin.php";</script>';
     } else {
         // Kiểm tra đăng nhập
         $query = "SELECT * FROM nguoidung WHERE tennguoidung='$username' AND matkhau='$password' AND quyen='user'";
@@ -22,7 +22,7 @@ if(isset($_POST['uname']) && isset($_POST['pswd'])) {
 
         if ($result->num_rows > 0) {
             // Đăng nhập thành công, cập nhật session và chuyển hướng đến trang chính
-            echo '<script>alert("Đăng nhập thành công!"); window.location.href = "../../index.html";</script>';
+            echo '<script>alert("Đăng nhập tài khoảng người dùng thành công!"); window.location.href = "../../index.html";</script>';
             exit();
         } else {
             // Đăng nhập không thành công, cập nhật biến kiểm tra đăng nhập và hiển thị thông báo lỗi
@@ -70,16 +70,16 @@ $conn->close();
             </div>
         <?php endif; ?>
         <div class="mb-3 mt-3">
-            <label for="uname" class="form-label">Username:</label>
-            <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+            <label for="uname" class="form-label">Tên đăng nhập:</label>
+            <input type="text" class="form-control" id="uname" placeholder="Tên đăng nhập" name="uname" required>
             <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>
+            <div class="invalid-feedback">Vui lòng nhập thông tin.</div>
         </div>
         <div class="mb-3">
-            <label for="pwd" class="form-label">Password:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+            <label for="pwd" class="form-label">Mật khẩu:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Mật khẩu" name="pswd" required>
             <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>
+            <div class="invalid-feedback">Vui lòng nhập mật khẩu.</div>
         </div>
         <button type="submit" class="btn btn-primary">Đăng nhập</button>
         <a href="../../index.html" class="btn btn-primary redo">Quay về</a>

@@ -31,6 +31,7 @@ button.searchbtn {
 }
 
 button.dangnhap {
+    color: #000;
     border: none;
     background-color: #ffb400;
 }
@@ -317,6 +318,10 @@ footer p {
 
 footer img {
     width: 100px;
+}
+
+footer .logo-footer {
+    margin-top: -4px;
 }
 /* FOOTER END */
 
