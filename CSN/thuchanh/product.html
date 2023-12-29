@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Thế Giới Di Động</title>
+        <link rel="stylesheet" href="./asess/css/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"
+        ></script>
+        <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script src="./asess/js/product.js"></script>
+        <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+        <!-- Thêm vào phần head của file index.html -->
+        <script>
+            // Kiểm tra nếu có thông báo từ URL thì hiển thị
+            window.onload = function () {
+                var urlParams = new URLSearchParams(window.location.search);
+                var message = urlParams.get("message");
+                if (message) {
+                    alert(decodeURIComponent(message));
+                }
+            };
+        </script>
+    </head>
+
+    <body ng-app="productApp" ng-controller="ProductController">
+        <!-- HEADER -->
+        <div class="header">
+            <!-- NAVBAR -->
+            <div class="background-color-nav">
+                <div class="container">
+                    <div class="row">
+                        <nav
+                            class="navbar navbar-expand-lg navbar-light bg-light colornav"
+                        >
+                            <a class="navbar-brand" href="./index.html"
+                                ><img
+                                    class="logo-tgdd"
+                                    src="./asess/img/TRUNG NGHIA STORE.png"
+                                    alt=""
+                            /></a>
+                            <button
+                                class="navbar-toggler"
+                                type="button"
+                                data-toggle="collapse"
+                                data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation"
+                            >
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                            <div
+                                class="collapse navbar-collapse"
+                                id="navbarSupportedContent"
+                            >
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="./index.html"
+                                            >Trang chủ
+                                            <span class="sr-only"
+                                                >(current)</span
+                                            ></a
+                                        >
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a
+                                            class="nav-link dropdown-toggle"
+                                            href="#"
+                                            id="navbarDropdown"
+                                            role="button"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true"
+                                            aria-expanded="false"
+                                        >
+                                            Hãng
+                                        </a>
+                                        <div
+                                            class="dropdown-menu"
+                                            aria-labelledby="navbarDropdown"
+                                        >
+                                            <a
+                                                ng-repeat="hang in dshang"
+                                                class="dropdown-item"
+                                                href="./product.html?id={{hang.id}}"
+                                                >{{hang.tenthuonghieu}}</a
+                                            >
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a
+                                            class="nav-link dropdown-toggle chonhang"
+                                            href="#"
+                                            id="navbarDropdown"
+                                            role="button"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true"
+                                            aria-expanded="false"
+                                        >
+                                            Giá
+                                        </a>
+                                        <div
+                                            class="dropdown-menu"
+                                            aria-labelledby="priceDropdown"
+                                        >
+                                            <a
+                                                class="dropdown-item"
+                                                href="./locsanpham.html?min=0&max=15000000"
+                                                >Dưới 15 triệu</a
+                                            >
+                                            <a
+                                                class="dropdown-item"
+                                                href="./locsanpham.html?min=15000000&max=30000000"
+                                                >15 triệu - 30 triệu</a
+                                            >
+                                            <a
+                                                class="dropdown-item"
+                                                href="./locsanpham.html?min=30000000&max=999999999"
+                                                >Trên 30 triệu</a
+                                            >
+                                        </div>
+                                    </li>
+                                </ul>
+                                <form
+                                    class="form-inline my-2 my-lg-0"
+                                    method="get"
+                                    action="./timkiem.html"
+                                >
+                                    <input
+                                        class="form-control mr-sm-2"
+                                        type="search"
+                                        placeholder="Search"
+                                        name="key"
+                                    />
+                                    <button
+                                        class="btn btn-outline-success my-2 my-sm-0 searchbtn"
+                                        type="submit"
+                                    >
+                                        <i class="bx bx-search"></i>
+                                    </button>
+                                </form>
+                                <button
+                                    class="btn btn-outline-success my-2 my-sm-0 dangnhap"
+                                >
+                                    <a href="./php/admin/index.php"
+                                        >Đăng nhập</a
+                                    >
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <div class="background-slider"></div>
+            <!-- END NAVBAR -->
+
+            <!-- SLIDER -->
+            <div class="container product container-slider">
+                <div class="row">
+                    <div
+                        id="carouselExampleControls"
+                        class="carousel slide sizeslide bg-slider color-slider"
+                        data-ride="carousel"
+                    >
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img
+                                    class="d-block w-100"
+                                    src="./asess/img/slider1.png"
+                                    alt="First slide"
+                                />
+                            </div>
+                            <div class="carousel-item">
+                                <img
+                                    class="d-block w-100"
+                                    src="./asess/img/slider2.png"
+                                    alt="Second slide"
+                                />
+                            </div>
+                            <div class="carousel-item">
+                                <img
+                                    class="d-block w-100"
+                                    src="./asess/img/slider3.png"
+                                    alt="Third slide"
+                                />
+                            </div>
+                            <div class="carousel-item">
+                                <img
+                                    class="d-block w-100"
+                                    src="./asess/img/slider4.png"
+                                    alt="Third slide"
+                                />
+                            </div>
+                            <div class="carousel-item">
+                                <img
+                                    class="d-block w-100"
+                                    src="./asess/img/slider5.png"
+                                    alt="Third slide"
+                                />
+                            </div>
+                        </div>
+                        <a
+                            class="carousel-control-prev"
+                            href="#carouselExampleControls"
+                            role="button"
+                            data-slide="prev"
+                        >
+                            <span
+                                class="carousel-control-prev-icon"
+                                aria-hidden="true"
+                            ></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a
+                            class="carousel-control-next"
+                            href="#carouselExampleControls"
+                            role="button"
+                            data-slide="next"
+                        >
+                            <span
+                                class="carousel-control-next-icon"
+                                aria-hidden="true"
+                            ></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- END SLIDER -->
+        </div>
+        <!-- END HEADER -->
+        <!-- ---------------------------------------------------- -->
+        <!-- PRODUCT -->
+        <div class="container product width-content new-product">
+            <div class="row">
+                <div class="new-product-img">
+                    <img src="./asess/img/picture-iphone.png" alt="" />
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb -->
+        <div class="container container-breadcrumb">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="./index.html">Trang chủ</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Điện thoại {{hangdangchon.tenthuonghieu}}
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        <!-- PRODUCT1 -->
+        <div
+            class="container product width-content container-product1 product-iphones"
+        >
+            <div class="logo-product logo-thuonghieu">
+                <img src="{{hangdangchon.anhthuonghieu}}" alt="" />
+            </div>
+            <div class="row">
+                <div
+                    class="col-12 col-sm-6 col-md-4 col-xl-3 col-xxl-3"
+                    style="width: 18rem"
+                    ng-repeat="product in products"
+                >
+                    <a
+                        href="./product-details.html?id={{product.id}}"
+                        class="product-to-detail"
+                    >
+                        <div class="card">
+                            <img
+                                class="card-img-top card-img-top_color"
+                                src="{{product.hinhanh[0].link}}"
+                                alt="Card image cap"
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title single-line-limit">
+                                    {{product.ten}}
+                                </h5>
+                                <h5 class="gia">{{product.gia}} VNĐ</h5>
+                                <p class="card-text two-line-limit">
+                                    {{product.mota}}
+                                </p>
+                                <a href="#" class="btn btn-primary">Mua ngay</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- END PRODUCT -->
+        <!-- ---------------------------------------------------- -->
+        <!-- FOOTER -->
+        <section class="contact-area" id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3">
+                        <div class="contact-content text-center">
+                            <a href="#"
+                                ><img
+                                    src="./asess/img/TRUNG NGHIA STORE.png"
+                                    alt="logo"
+                            /></a>
+                            <p>
+                                Lắng nghe và chia sẻ <br />
+                                Tìm dễ, chọn dễ mua càng dễ
+                            </p>
+                            <div class="hr"></div>
+                            <h6>
+                                126 Nguyễn Thiện Thành, Phường 5, Trà Vinh, Việt
+                                Nam
+                            </h6>
+                            <h6>+84 1800 1060<span>|</span>+84 1800 1060</h6>
+                            <div class="contact-social">
+                                <ul>
+                                    <li>
+                                        <a class="hover-target" href=""
+                                            ><i class="bx bxl-facebook"></i
+                                        ></a>
+                                    </li>
+                                    <li>
+                                        <a class="hover-target" href=""
+                                            ><i class="bx bxl-github"></i
+                                        ></a>
+                                    </li>
+                                    <li>
+                                        <a class="hover-target" href=""
+                                            ><i class="bx bxl-instagram-alt"></i
+                                        ></a>
+                                    </li>
+                                    <li>
+                                        <a class="hover-target" href=""
+                                            ><i class="bx bxl-tiktok"></i
+                                        ></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p>
+                Copyright &copy; 2023
+                <img src="./asess/img/TRUNG NGHIA STORE.png" alt="logo" />
+                Cửa hàng bán lẻ toàn quốc.
+            </p>
+        </footer>
+        <!-- END FOOTER -->
+    </body>
+</html>

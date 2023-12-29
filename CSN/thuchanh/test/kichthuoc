@@ -1,0 +1,29 @@
+Điện thoại di động: max-width 320px khi hiển thị chiều dọc và 480px khi hiển thị chiều ngang.
+Máy tính bảng: max-width 600px khi hiển thị chiều dọc và 800px hiển thị ở chiều ngang.
+Máy tính bảng loại lớn: max-width 768px khi hiển thị chiều dọc và 1024px khi ở chiều ngang.
+
+Trong đó, mỗi một cột sẽ có Padding là 15px sang hai bên, các ký hiệu cột như sau:
+.col-lg- : sử dụng cho màn hình có độ phân giải ≥ 1200px (Large devices – Desktop)
+.col-md- : sử dụng cho màn hình có độ phân giải ≥ 992px (Medium devices – Desktop)
+.col-sm- : sử dụng cho màn hình có độ phân giải ≥ 768px (Small devices – Tablets)
+.col-xs- : sử dụng cho màn hình có độ phân giải < 768px (Extra small devices – Phones)
+
+Cụ thể độ rộng của các cột như sau
+.col-md-1 : Cột rộng 1 phần (1 phần/12 phần) với màn hình máy tính trung bình (Medium devices)
+.col-md-6: Cột rộng một nửa màn hình (6 phần/12 phần) với màn hình máy tính trung bình (Medium devices)
+.col-sm-12: Cột rộng toàn màn hình (12 phần/12 phần) với màn hình máy tính bảng (Small devices)
+.col-xm-12: Cột rộng toàn màn hình (12 phần/12 phần) với màn hình điện thoại (Extra small devices)
+
+
+<div class="row">
+  <div class="col-2 boder">
+      <?php
+          include "./header.php";
+      ?>
+  </div>
+
+  <div class="col-10">
+
+  </div>
+
+</div>

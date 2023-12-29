@@ -1,0 +1,333 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f3f3f3 !important;
+}
+/* HEADER */
+
+/* navbar */
+.header .colornav {
+    background-color: #ffd400 !important;
+    width: 100%;
+}
+
+.background-color-nav {
+    background-color: #ffd400;
+}
+
+.logo-tgdd {
+    width: 200px;
+}
+
+button.searchbtn {
+    margin-right: 10px;
+    border: none;
+    background-color: #ffb400;
+    color: #000;
+}
+
+button.dangnhap {
+    border: none;
+    background-color: #ffb400;
+}
+
+button.dangnhap a {
+    text-decoration: none;
+    color: #000;
+}
+
+button.dangnhap a:hover {
+    color: #fff;
+}
+
+
+.background-slider {
+    width: 100%;
+    height: 200px;
+    border-radius: 0 0 80% 80%;
+    background-color: #ffd400;
+}
+
+@media (max-width: 767px) {
+    .background-slider {
+        margin-top: -50px;
+    }
+
+    div.container-slider {
+        margin-top: -140px;
+    }
+}
+
+@media (max-width: 767px) {
+    .background-slider {
+        display: none;
+    }
+
+    div.container-slider {
+        margin-top: 20px;
+    }
+}
+
+li.nav-item a.chonhang {
+    color: #000 !important;
+}
+/* navbar end */
+
+/* slider */
+.sizeslide {
+    width: 100%;
+    margin: auto;
+}
+
+.bg-slider {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    border-radius: 10px;
+}
+
+.container-slider {
+    background: linear-gradient(to bottom, #ffd400 50%, transparent 50%);
+    border-radius: 20px;
+    margin-top: -190px;
+    padding-bottom: 20px;
+}
+/* slider end */
+
+/* HEADER END */
+
+/* PRODUCT */
+
+/* breadcrumb */
+.container-breadcrumb .breadcrumb {
+    background-color: #d9d9d9;
+    box-shadow: rgb(148, 150, 152) 0px 10px 20px -10px;
+    margin: -20px 0 20px 0;
+}
+
+li.breadcrumb-item.active {
+    color: #000000;
+}
+/* breadcrumb end */
+
+div.card {
+    margin: 20px 0 20px 0;
+    box-shadow: rgb(73, 93, 116) 0px 20px 30px -10px;
+    border-radius: 20px;
+    background-color: #ffd400;
+}
+
+div.card img {
+    border-radius: 20px 20px 0 0;
+    background-color: #f3f3f3;
+    padding: 30px 0 30px 0;
+}
+
+.card:hover {
+    margin-top: 15px;
+    cursor: pointer;
+    box-shadow: 0px 12px 30px 0px rgba(0, 0, 0, 0.2);
+    transition: all 800ms cubic-bezier(0.3, 1, 0.2, 1);
+}
+
+@media (min-width: 1200px) {
+    div.container {
+        max-width: 1300px;
+    }
+}
+
+div.new-product {
+    margin-bottom: 20px;
+}
+
+.new-product-img {
+    text-align: center;
+}
+
+.new-product-img img {
+    height: auto;
+    width: 1300px;
+}
+
+.container-product1 {
+    background-color: #da111a;
+}
+
+.logo-product {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin: -20px 0 -15px;
+}
+
+.logo-thuonghieu {
+    width: 200px;
+    margin: auto;
+}
+
+.width-content {
+    border-radius: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+/* .container-product2 {
+    background-color: #e53570;
+    margin-top: 30px;
+} */
+
+/* .container-product3 {
+    background-color: #ff685f;
+    margin-top: 30px;
+} */
+
+/* .container-product4 {
+    background-color: #fdbba3;
+    margin-top: 30px;
+} */
+
+.btn-primary {
+    margin-top: 10px;
+}
+
+.two-line-limit {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.single-line-limit {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-to-detail {
+    color: #000;
+    text-decoration: none;
+}
+
+.product-to-detail,
+.product-to-detail:hover,
+.product-to-detail:visited {
+    text-decoration: none;
+    color: black;
+}
+
+div.card img.card-img-top_color {
+    background-color: #fdfdfd;
+}
+
+/* PRODUCT END */
+
+/* FOOTER */
+img {
+    max-width: 100%;
+    height: auto;
+}
+section {
+    padding: 60px 0;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.contact-area {
+    border-bottom: 1px solid #353c46;
+}
+
+.contact-content p {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 30px 0 60px;
+    position: relative;
+}
+
+.contact-content p::after {
+    background: #353c46;
+    bottom: -30px;
+    content: "";
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%);
+    width: 80%;
+}
+
+.contact-content h6 {
+    color: #333;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.contact-content span {
+    color: #333;
+    margin: 0 10px;
+}
+
+.contact-social {
+    margin-top: 30px;
+}
+
+.contact-social > ul {
+    display: inline-flex;
+}
+
+.contact-social ul li a {
+    border: 1px solid #8b9199;
+    color: #333;
+    display: inline-block;
+    height: 40px;
+    margin: 0 10px;
+    padding-top: 7px;
+    transition: all 0.4s ease 0s;
+    width: 40px;
+}
+
+.contact-social ul li a:hover {
+    border: 1px solid #fab702;
+    color: #fab702;
+}
+
+.contact-content img {
+    max-width: 210px;
+}
+
+section,
+footer {
+    background: #ffd400;
+    color: #333;
+}
+
+footer p {
+    padding: 40px 80px;
+    text-align: center;
+    margin: 0;
+}
+
+footer img {
+    width: 100px;
+}
+/* FOOTER END */
+
+/* --------------------------------------------------------------------------- */
+
+/* PRODUCT IPHONE */
+
+/* product */
+.product-iphones {
+    background-color: #f3f3f3;
+}
+/* product */
+
+
