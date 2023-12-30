@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sản Phẩm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-2 boder">
+            <?php
+            include "./header.php";
+            ?>
+        </div>
+
+        <div class="col-10">
+            <div class="container mt-3">
+                <h2>Quản Lý Sản Phẩm</h2>
+                <a href="./form_sanpham.php" class="btn btn-primary">Thêm mới</a>
+
+                <?php
+                // quanlysanpham.php
+
+                include "../connect.php";
+
+                if (isset($_GET['brand_id'])) {
+                    $brand_id = $_GET['brand_id'];
+                    
+                    // Thực hiện truy vấn để lấy sản phẩm của hãng có id là $brand_id
+                    $sql = "SELECT sanpham.*, hinhanh.link as link 
+                            FROM sanpham 
+                            LEFT JOIN hinhanh ON sanpham.id = hinhanh.sanpham_id
+                            WHERE sanpham.thuonghieu_id = $brand_id";
+
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        echo "<table class='table table-hover'>";
+                        echo "<tr><th>STT</th><th>Tên sản phẩm</th><th>Giá bán</th><th>Mô tả</th><th>Hãng sản xuất</th><th>Ảnh sản phẩm</th><th>Sửa</th><th>Xóa</th></tr>";
+                        $stt = 1;
+                        while ($row = $result->fetch_assoc()) {
+                            // Đoạn mã hiển thị sản phẩm tương tự như trang thống kê
+                            echo "<tr><td>" . $stt . "</td><td>" . $row["ten"] . "</td><td>" . number_format($row['gia'], 0, ',', '.') . " VNĐ</td><td>" . $row["mota"] . "</td><td>" . $row["hangsanxuat"] . "</td><td><img src='" . $row["link"] . "' alt='Ảnh sản phẩm' style='max-width: 100px; max-height: 100px;'></td>";
+
+                            echo "<td><a class='btn btn-primary' href='./sua_sanpham.php?ma=" . $row["id"] . "'>Sửa</a></td>";
+                            echo "<td><a class='btn btn-danger' href='./xoa_sanpham.php?ma=" . $row["id"] . "' onclick='return confirm(\"Bạn có chắc chắn muốn xóa không?\")'>Xóa</a></td>";
+                            echo "</tr>";
+                            $stt++;
+                        }
+                        echo "</table>";
+                    } else {
+                        echo "Không có sản phẩm";
+                    }
+                    $conn->close();
+                } else {
+                    echo "Không có thông tin hãng sản xuất được chọn.";
+                }
+                ?>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -25,7 +25,7 @@
                 include "../connect.php";
 
                 // Query to get product statistics by brand
-                $sql = "SELECT th.tenthuonghieu, COUNT(sp.id) AS soluong
+                $sql = "SELECT th.id, th.tenthuonghieu, COUNT(sp.id) AS soluong
                         FROM thuonghieu th
                         LEFT JOIN sanpham sp ON th.id = sp.thuonghieu_id
                         GROUP BY th.id";
@@ -34,12 +34,26 @@
 
                 if ($result->num_rows > 0) {
                     echo "<table class='table table-hover'>";
-                    echo "<tr><th>Thương Hiệu</th><th>Số Lượng Sản Phẩm</th></tr>";
-
+                    echo "<tr><th>STT</th><th>Thương Hiệu</th><th>Số Lượng Sản Phẩm</th><th>Chi tiết</th></tr>";
+                    $Stt = 1;
+                    $TongSL = 0;
                     while ($row = $result->fetch_assoc()) {
-                        echo "<tr><td>" . $row["tenthuonghieu"] . "</td><td>" . $row["soluong"] . "</td></tr>";
+                        echo "<tr><td>". $Stt ."</td><td>" . $row["tenthuonghieu"] . "</td><td>" . $row["soluong"] . "</td>";
+                        echo"<td>";
+                        
+                        // <a class="btn btn-primary" href="./sanphamdathem.php">Chi tiết</a>
+                        if (isset($row["id"])) {
+                            echo "<a class='btn btn-primary' href='./quanlysanpham.php?brand_id=" . $row["id"] . "'>Chi tiết</a>";
+                        } else {
+                            echo "ID không tồn tại";
+                        }
+                        
+                        echo "</td>";
+                        $TongSL += $row["soluong"];
+                        $Stt++;
+                        echo "</tr>";
                     }
-
+                    echo "<tr><td></td><td><b>Tổng số lượng</b></td><td><b>$TongSL</b></td><td></td></tr>";
                     echo "</table>";
                 } else {
                     echo "0 results";
