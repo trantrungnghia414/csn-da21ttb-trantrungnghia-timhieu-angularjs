@@ -14,7 +14,7 @@ $resultGetImages = $conn->query($sqlGetImages);
 if ($resultGetImages->num_rows > 0) {
     while ($row = $resultGetImages->fetch_assoc()) {
         // Xóa file ảnh từ thư mục
-        $imagePath = str_replace('http://localhost/csn/thuchanh/static/', 'D:/laragon/laragon/www/CSN/thuchanh/static/', $row['link']);
+        $imagePath = str_replace('http://localhost/csn/thuchanh/static/', 'D:/hoc_ky_1_nam_ba/!_do_an_co_so_nganh/4_de_cuong_chi_tiet_git\csn-da21ttb-trantrungnghia-timhieu-angularjs/CSN/thuchanh/static/', $row['link']);
         if (file_exists($imagePath)) {
             unlink($imagePath);
         }

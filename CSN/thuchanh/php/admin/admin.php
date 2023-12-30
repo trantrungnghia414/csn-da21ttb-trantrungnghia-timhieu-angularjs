@@ -16,6 +16,7 @@
 
         <div class="col-10 boder admin">
             <h3>
+                <img src="../../asess/img/TRUNG NGHIA STORE.png" alt="Ảnh thương hiệu" class="admin_logo"> <br>
                 Chào mừng bạn đã đến với trang Admin
             </h3>
         </div>

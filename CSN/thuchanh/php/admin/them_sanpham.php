@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Xử lý hình ảnh
         $link_anh = "";
         if (isset($_FILES["hinhAnh"])){
-            $target_dir = "D:/laragon/laragon/www/CSN/thuchanh/static/";
+            $target_dir = "D:/hoc_ky_1_nam_ba/!_do_an_co_so_nganh/4_de_cuong_chi_tiet_git\csn-da21ttb-trantrungnghia-timhieu-angularjs/CSN/thuchanh/static/";
             $target_file = $target_dir . basename($_FILES["hinhAnh"]["name"]);
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));

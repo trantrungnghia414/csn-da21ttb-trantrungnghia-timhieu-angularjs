@@ -57,3 +57,7 @@ div.container.mt-3 {
     padding-top: 100px;
     font-size: 40px;
 }
+
+.admin .admin_logo {
+    width: 40%;
+}

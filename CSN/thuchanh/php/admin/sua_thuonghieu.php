@@ -44,7 +44,7 @@ if (isset($_POST["sbCapNhat"])) {
         $mota = $_POST["mota"];
 
         // Xử lý upload ảnh
-        $target_dir = "D:/laragon/laragon/www/CSN/thuchanh/asess/img/";
+        $target_dir = "D:/hoc_ky_1_nam_ba/!_do_an_co_so_nganh/4_de_cuong_chi_tiet_git/csn-da21ttb-trantrungnghia-timhieu-angularjs/CSN/thuchanh/asess/img/";
         $uploadOk = 1;
 
         // Kiểm tra xem người dùng đã chọn file mới hay chưa
@@ -86,7 +86,7 @@ if (isset($_POST["sbCapNhat"])) {
                 if (basename($anhthuonghieu_val) != basename($_FILES["anhthuonghieu"]["name"])) {
                     // Xóa ảnh cũ trước khi upload ảnh mới
                     if (!empty($anhthuonghieu_val)) {
-                        $old_image_path = "D:/laragon/laragon/www/CSN/thuchanh/asess/img/" . basename($anhthuonghieu_val);
+                        $old_image_path = "D:/hoc_ky_1_nam_ba/!_do_an_co_so_nganh/4_de_cuong_chi_tiet_git/csn-da21ttb-trantrungnghia-timhieu-angularjs/CSN/thuchanh/asess/img/" . basename($anhthuonghieu_val);
                         if (file_exists($old_image_path)) {
                             unlink($old_image_path);
                         }

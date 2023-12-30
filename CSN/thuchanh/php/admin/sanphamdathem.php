@@ -56,7 +56,7 @@
                     }
                     echo "</table>";
                 } else {
-                    echo "0 results";
+                    echo "Không có sản phẩm";
                 }
                 $conn->close();
                 ?>

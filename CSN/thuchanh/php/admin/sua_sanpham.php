@@ -45,7 +45,7 @@ if (isset($_POST["sbCapNhat"])) {
         //SUA ANH SAN PHAM
         // Kiểm tra và lưu thông tin hình ảnh vào bảng hinhanh
         if (isset($_FILES['hinhAnh']) && $_FILES['hinhAnh']['error'] == 0) {
-            $target_dir = "D:/laragon/laragon/www/CSN/thuchanh/static/";
+            $target_dir = "D:/hoc_ky_1_nam_ba/!_do_an_co_so_nganh/4_de_cuong_chi_tiet_git\csn-da21ttb-trantrungnghia-timhieu-angularjs/CSN/thuchanh/static/";
             $target_file = $target_dir . basename($_FILES["hinhAnh"]["name"]);
             $tenhinhanh = $_FILES["hinhAnh"]["name"];
             $uploadOk = 1;
@@ -73,7 +73,7 @@ $resultGetImages = $conn->query($sqlHinhAnh);
 if ($resultGetImages->num_rows > 0) {
     while ($row = $resultGetImages->fetch_assoc()) {
         // Xóa file ảnh từ thư mục
-        $imagePath = str_replace('http://localhost/csn/thuchanh/static/', 'D:/laragon/laragon/www/CSN/thuchanh/static/', $row['link']);
+        $imagePath = str_replace('http://localhost/csn/thuchanh/static/', 'D:/hoc_ky_1_nam_ba/!_do_an_co_so_nganh/4_de_cuong_chi_tiet_git\csn-da21ttb-trantrungnghia-timhieu-angularjs/CSN/thuchanh/static/', $row['link']);
         if (file_exists($imagePath)) {
             unlink($imagePath);
         }

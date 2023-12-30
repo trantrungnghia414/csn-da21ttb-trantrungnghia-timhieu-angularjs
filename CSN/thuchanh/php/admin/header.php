@@ -25,6 +25,9 @@
                 <a href="./nguoidungdathem.php" class="header-item">Người dùng</a>
             </li>
             <li>
+                <a href="./thongkesanpham.php" class="header-item">Thông kê sản phẩm</a>
+            </li>
+            <li>
                 <a href="../../index.html" class="header-item">Đăng xuất</a>
             </li>
         </ul>

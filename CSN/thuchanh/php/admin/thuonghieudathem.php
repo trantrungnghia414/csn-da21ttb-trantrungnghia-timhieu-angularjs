@@ -50,7 +50,7 @@
           }
           echo "</table>";
         } else {
-          echo "0 results";
+          echo "Không có thương hiệu";
         }
         $conn->close();
         ?>

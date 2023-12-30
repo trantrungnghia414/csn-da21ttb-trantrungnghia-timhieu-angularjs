@@ -10,7 +10,8 @@ if (isset($_POST["tenThuongHieu"]) && isset($_POST["xuatXu"]) && isset($_POST["m
     $moTa = $_POST["moTa"];
 
     // Xử lý upload ảnh
-    $target_dir = "D:/laragon/laragon/www/CSN/thuchanh/asess/img/";
+    // $target_dir = "D:/laragon/laragon/www/CSN/thuchanh/asess/img/";
+    $target_dir = "D:/hoc_ky_1_nam_ba/!_do_an_co_so_nganh/4_de_cuong_chi_tiet_git/csn-da21ttb-trantrungnghia-timhieu-angularjs/CSN/thuchanh/asess/img/";
     $target_file = $target_dir . basename($_FILES["anhThuongHieu"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
