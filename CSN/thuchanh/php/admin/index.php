@@ -3,36 +3,40 @@
 include "../connect.php";
 
 // Lấy dữ liệu từ form đăng nhập
-if(isset($_POST['uname']) && isset($_POST['pswd'])) {
+if (isset($_POST['uname']) && isset($_POST['pswd'])) {
     $username = $_POST['uname'];
     $password = $_POST['pswd'];
 
     // Kiểm tra đăng nhập
-    $query = "SELECT * FROM nguoidung WHERE tennguoidung='$username' AND matkhau='$password' AND quyen='admin'";
+    $query = "SELECT * FROM nguoidung WHERE tennguoidung='$username'";
     $result = $conn->query($query);
 
     if ($result->num_rows > 0) {
-        // Đăng nhập thành công, chuyển hướng đến trang admin.php
-        // header("Location: admin.php");
-        echo '<script>alert("Đăng nhập tài khoảng admin thành công!"); window.location.href = "admin.php";</script>';
-    } else {
-        // Kiểm tra đăng nhập
-        $query = "SELECT * FROM nguoidung WHERE tennguoidung='$username' AND matkhau='$password' AND quyen='user'";
-        $result = $conn->query($query);
+        $row = $result->fetch_assoc();
 
-        if ($result->num_rows > 0) {
-            // Đăng nhập thành công, cập nhật session và chuyển hướng đến trang chính
-            echo '<script>alert("Đăng nhập tài khoảng người dùng thành công!"); window.location.href = "../../index.html";</script>';
-            exit();
+        // Sử dụng password_verify để kiểm tra mật khẩu
+        if (password_verify($password, $row['matkhau'])) {
+            if ($row['quyen'] === 'admin') {
+                // Đăng nhập thành công, chuyển hướng đến trang admin.php
+                echo '<script>alert("Đăng nhập tài khoảng admin thành công!"); window.location.href = "admin.php";</script>';
+            } else {
+                // Đăng nhập thành công, cập nhật session và chuyển hướng đến trang chính
+                echo '<script>alert("Đăng nhập tài khoảng người dùng thành công!"); window.location.href = "../../index.html";</script>';
+                exit();
+            }
         } else {
             // Đăng nhập không thành công, cập nhật biến kiểm tra đăng nhập và hiển thị thông báo lỗi
             $loginError = "Tên người dùng hoặc mật khẩu không đúng. Vui lòng thử lại.";
         }
+    } else {
+        // Không tìm thấy tài khoản với tên người dùng đã nhập
+        $loginError = "Tên người dùng hoặc mật khẩu không đúng. Vui lòng thử lại.";
     }
 }
 
 // Đóng kết nối
 $conn->close();
+
 ?>
 
 

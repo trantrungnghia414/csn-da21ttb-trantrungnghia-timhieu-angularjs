@@ -50,29 +50,29 @@
 
                     <div class="mb-3 mt-3">
                         <label for="ten">Tên sản phẩm</label>
-                        <input type="text" class="form-control" id="tensanpham" name="tenSanPham" placeholder="Nhập tên sản phẩm">
+                        <input type="text" class="form-control" id="tensanpham" name="tenSanPham" placeholder="Nhập tên sản phẩm" required>
                     </div>
 
                     <div class="mb-3 mt-3">
                         <label for="gia">Giá bán</label>
-                        <input type="number" class="form-control" id="gia" name="gia" placeholder="Nhập giá">
+                        <input type="number" class="form-control" id="gia" name="gia" placeholder="Nhập giá" required>
                     </div>
 
                     <div class="mb-3 mt-3">
                         <label for="mota">Mô tả</label>
-                        <input type="text" class="form-control" id="mota" name="moTa" placeholder="Nhập mô tả">
+                        <input type="text" class="form-control" id="mota" name="moTa" placeholder="Nhập mô tả" required>
                     </div>
 
                     <div class="mb-3 mt-3">
                         <label for="hangsanxuat">Xuất xứ</label>
-                        <input type="text" class="form-control" id="hangsanxuat" name="hangSanXuat" placeholder="Nhập hãng sản xuất">
+                        <input type="text" class="form-control" id="hangsanxuat" name="hangSanXuat" placeholder="Nhập hãng sản xuất" required>
                     </div>
 
                     <!-- Thêm phần chọn file ảnh -->
                     <div class="mb-3 mt-3">
                         <label for="hinhanh">Chọn ảnh</label>
                         <!-- <input type="file" class="form-control" id="hinhanh" name="hinhAnh" accept="image/*" multiple> -->
-                        <input type="file" class="form-control" id="hinhanh" name="hinhAnh">
+                        <input type="file" class="form-control" id="hinhanh" name="hinhAnh" required>
                     </div>
                     <!-- Thêm phần chọn file ảnh -->
 

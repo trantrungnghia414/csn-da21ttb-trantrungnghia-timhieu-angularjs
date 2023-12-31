@@ -24,22 +24,22 @@
 
           <div class="mb-3 mt-3">
             <label for="tenthuonghieu">Tên thương hiệu</label>
-            <input type="text" class="form-control" id="tenthuonghieu" name="tenThuongHieu" placeholder="Nhập tên thương hiệu">
+            <input type="text" class="form-control" id="tenthuonghieu" name="tenThuongHieu" placeholder="Nhập tên thương hiệu" required>
           </div>
 
           <div class="mb-3 mt-3">
             <label for="xuatxu">Xuất xứ</label>
-            <input type="text" class="form-control" id="xuatxu" name="xuatXu" placeholder="Nhập xuất xứ">
+            <input type="text" class="form-control" id="xuatxu" name="xuatXu" placeholder="Nhập xuất xứ" required>
           </div>
 
           <div class="mb-3 mt-3">
             <label for="mota">Mô tả</label>
-            <input type="text" class="form-control" id="mota" name="moTa" placeholder="Nhập mô tả">
+            <input type="text" class="form-control" id="mota" name="moTa" placeholder="Nhập mô tả" required>
           </div>
           
           <div class="mb-3 mt-3">
             <label for="anhthuonghieu">Ảnh thương hiệu</label>
-            <input type="file" class="form-control" id="anhthuonghieu" name="anhThuongHieu">
+            <input type="file" class="form-control" id="anhthuonghieu" name="anhThuongHieu" required>
           </div>
         
           <button type="submit" class="btn btn-primary">Thêm mới</button>
