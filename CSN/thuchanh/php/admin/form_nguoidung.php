@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../asess/img/favicon.ico" type="image/x-icon">
     <title>Quản lý Người Dùng</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -33,8 +34,20 @@
 
                     <div class="mb-3 mt-3">
                         <label for="sodienthoai">Số điện thoại</label>
-                        <input type="tel" class="form-control" id="sodienthoai" name="sodienthoai" placeholder="Nhập số điện thoại" pattern="[0-9]+" title="Vui lòng chỉ nhập số" maxlength="10" required>
+                        <input type="tel" class="form-control" id="sodienthoai" name="sodienthoai" placeholder="Nhập số điện thoại" oninput="validatePhoneNumber(this)" required>
                     </div>
+
+                    <script>
+                    function validatePhoneNumber(input) {
+                        // Loại bỏ các ký tự không phải số
+                        input.value = input.value.replace(/[^0-9]/g, '');
+
+                        // Giữ cho độ dài của chuỗi là tối đa 10 ký tự
+                        if (input.value.length > 10) {
+                            input.value = input.value.slice(0, 10);
+                        }
+                    }
+                    </script>
 
                     <div class="mb-3 mt-3">
                         <label for="diachi">Địa chỉ</label>

@@ -38,8 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $quyen = $_POST["quyen"];
     $matkhau = $_POST["matkhau"];
 
+    // Băm mật khẩu để tăng cường an ninh
+    $hashedPassword = password_hash($matkhau, PASSWORD_DEFAULT);
+
     // Truy vấn SQL để cập nhật thông tin người dùng
-    $sql = "UPDATE nguoidung SET tennguoidung='$tennguoidung', email='$email', sodienthoai='$sodienthoai', diachi='$diachi', quyen='$quyen', matkhau='$matkhau' WHERE id=$ma_nguoidung";
+    $sql = "UPDATE nguoidung SET tennguoidung='$tennguoidung', email='$email', sodienthoai='$sodienthoai', diachi='$diachi', quyen='$quyen', matkhau='$hashedPassword' WHERE id=$ma_nguoidung";
 
     // Thực hiện truy vấn
     if ($conn->query($sql) === TRUE) {
@@ -61,6 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../asess/img/favicon.ico" type="image/x-icon">
     <title>Sửa Người Dùng</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

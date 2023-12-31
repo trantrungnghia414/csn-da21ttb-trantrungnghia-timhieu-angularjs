@@ -137,6 +137,7 @@ if (isset($_POST["sbCapNhat"])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="../../asess/img/favicon.ico" type="image/x-icon">
     <title>Quản lý thương hiệu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

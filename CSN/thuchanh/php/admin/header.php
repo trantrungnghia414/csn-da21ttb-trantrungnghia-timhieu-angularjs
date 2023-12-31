@@ -28,8 +28,20 @@
                 <a href="./thongkesanpham.php" class="header-item">Thông kê sản phẩm</a>
             </li>
             <li>
-                <a href="../../index.html" class="header-item">Đăng xuất</a>
+                <a href="#" class="header-item" onclick="confirmLogout()">Đăng xuất</a>
             </li>
+            <!-- JavaScript để hiển thị xác nhận -->
+            <script>
+            function confirmLogout() {
+                var confirmation = confirm("Bạn có chắc chắn muốn đăng xuất?");
+                if (confirmation) {
+                    // Nếu người dùng chấp nhận, chuyển hướng đến trang đăng xuất
+                    window.location.href = "./logout.php";
+                } else {
+                    // Người dùng đã hủy đăng xuất, không thực hiện hành động gì
+                }
+            }
+            </script>
         </ul>
     </div>
 </body>

@@ -114,6 +114,7 @@ if ($resultGetImages->num_rows > 0) {
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" href="../../asess/img/favicon.ico" type="image/x-icon">
     <title>Quản lý sản phẩm</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

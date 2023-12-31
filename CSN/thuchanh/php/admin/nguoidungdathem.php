@@ -31,7 +31,7 @@
                 echo "<tr><th>STT</th><th>Tên người dùng</th><th>Email</th><th>Số điện thoại</th><th>Địa chỉ</th><th>Quyền</th><th>Mật khẩu</th><th>Sửa</th><th>Xóa</th></tr>";
                 $stt = 1;
                 while ($row = $result->fetch_assoc()) {
-                    echo "<tr><td>" . $stt . "</td><td>" . $row["tennguoidung"] . "</td><td>" . $row["email"] . "</td><td>" . $row["sodienthoai"] . "</td><td>" . $row["diachi"] . "</td><td>" . $row["quyen"] . "</td><td>" . $row["matkhau"] . "</td>";
+                    echo "<tr><td>" . $stt . "</td><td>" . $row["tennguoidung"] . "</td><td>" . $row["email"] . "</td><td>" . $row["sodienthoai"] . "</td><td>" . $row["diachi"] . "</td><td>" . $row["quyen"] . "</td><td style='max-width: 100px; overflow: hidden; text-overflow: ellipsis;'>" . $row["matkhau"] . "</td>";
 
                     echo "<td>";
                     ?>
