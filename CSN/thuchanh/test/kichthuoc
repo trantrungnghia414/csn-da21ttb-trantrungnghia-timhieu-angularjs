@@ -27,3 +27,13 @@ Cụ thể độ rộng của các cột như sau
   </div>
 
 </div>
+
+
+1 thêm thống kê theo xuất xứ
+2 sửa báo cáo
+ - file docx
+ - references > manage sources - tạo tài liệu tham khảo > style - IEEE > bibli - chọn kiểu hiển thị
+ - review > accept - chấp nhận xóa > reject - không chấp nhận xóa
+ - xuất file .doc từ MySQL
+ 
+3 làm pwp

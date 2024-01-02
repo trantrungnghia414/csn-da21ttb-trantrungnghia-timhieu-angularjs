@@ -13,11 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $matkhau = $_POST["matkhau"];
 
     // Băm mật khẩu để tăng cường an ninh
-    $hashedPassword = password_hash($matkhau, PASSWORD_DEFAULT);
+    // $hashedPassword = password_hash($matkhau, PASSWORD_DEFAULT);
 
     // Truy vấn SQL để chèn thông tin người dùng vào cơ sở dữ liệu
     $sql = "INSERT INTO nguoidung (tennguoidung, email, sodienthoai, diachi, quyen, matkhau) 
-            VALUES ('$tennguoidung', '$email', '$sodienthoai', '$diachi', '$quyen', '$hashedPassword')";
+            VALUES ('$tennguoidung', '$email', '$sodienthoai', '$diachi', '$quyen', '$matkhau')";
 
     // Thực hiện truy vấn
     if ($conn->query($sql) === TRUE) {

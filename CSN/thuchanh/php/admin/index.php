@@ -14,14 +14,14 @@ if (isset($_POST['uname']) && isset($_POST['pswd'])) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
-        // Sử dụng password_verify để kiểm tra mật khẩu
-        if (password_verify($password, $row['matkhau'])) {
+        // Kiểm tra mật khẩu không mã hóa
+        if ($password === $row['matkhau']) {
             if ($row['quyen'] === 'admin') {
                 // Đăng nhập thành công, chuyển hướng đến trang admin.php
-                echo '<script>alert("Đăng nhập tài khoảng admin thành công!"); window.location.href = "admin.php";</script>';
+                echo '<script>alert("Đăng nhập tài khoản admin thành công!"); window.location.href = "admin.php";</script>';
             } else {
                 // Đăng nhập thành công, cập nhật session và chuyển hướng đến trang chính
-                echo '<script>alert("Đăng nhập tài khoảng người dùng thành công!"); window.location.href = "../../index.html";</script>';
+                echo '<script>alert("Đăng nhập tài khoản người dùng thành công!"); window.location.href = "../../index.html";</script>';
                 exit();
             }
         } else {
@@ -36,8 +36,8 @@ if (isset($_POST['uname']) && isset($_POST['pswd'])) {
 
 // Đóng kết nối
 $conn->close();
-
 ?>
+
 
 
 <!DOCTYPE html>

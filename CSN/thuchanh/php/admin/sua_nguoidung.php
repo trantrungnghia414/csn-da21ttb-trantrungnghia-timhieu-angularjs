@@ -39,10 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $matkhau = $_POST["matkhau"];
 
     // Băm mật khẩu để tăng cường an ninh
-    $hashedPassword = password_hash($matkhau, PASSWORD_DEFAULT);
+    // $hashedPassword = password_hash($matkhau, PASSWORD_DEFAULT);
 
     // Truy vấn SQL để cập nhật thông tin người dùng
-    $sql = "UPDATE nguoidung SET tennguoidung='$tennguoidung', email='$email', sodienthoai='$sodienthoai', diachi='$diachi', quyen='$quyen', matkhau='$hashedPassword' WHERE id=$ma_nguoidung";
+    $sql = "UPDATE nguoidung SET tennguoidung='$tennguoidung', email='$email', sodienthoai='$sodienthoai', diachi='$diachi', quyen='$quyen', matkhau='$matkhau' WHERE id=$ma_nguoidung";
 
     // Thực hiện truy vấn
     if ($conn->query($sql) === TRUE) {

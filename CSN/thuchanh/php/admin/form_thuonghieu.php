@@ -39,7 +39,7 @@
           
           <div class="mb-3 mt-3">
             <label for="anhthuonghieu">Ảnh thương hiệu</label>
-            <input type="file" class="form-control" id="anhthuonghieu" name="anhThuongHieu" required>
+            <input type="file" class="form-control" id="anhthuonghieu" name="anhThuongHieu" accept=".jpg, .jpeg, .png" required>
           </div>
         
           <button type="submit" class="btn btn-primary">Thêm mới</button>

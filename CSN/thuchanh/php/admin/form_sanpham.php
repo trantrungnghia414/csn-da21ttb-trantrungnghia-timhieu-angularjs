@@ -72,7 +72,7 @@
                     <div class="mb-3 mt-3">
                         <label for="hinhanh">Chọn ảnh</label>
                         <!-- <input type="file" class="form-control" id="hinhanh" name="hinhAnh" accept="image/*" multiple> -->
-                        <input type="file" class="form-control" id="hinhanh" name="hinhAnh" required>
+                        <input type="file" class="form-control" id="hinhanh" name="hinhAnh" accept=".jpg, .jpeg, .png" required>
                     </div>
                     <!-- Thêm phần chọn file ảnh -->
 
