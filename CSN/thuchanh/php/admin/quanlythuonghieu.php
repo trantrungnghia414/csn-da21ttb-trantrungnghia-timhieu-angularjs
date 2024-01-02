@@ -48,7 +48,7 @@
     </style>
 </head>
 
-<body>     
+<body>
     <div class="row">
         <div class="col-2 boder">
             <?php
@@ -61,34 +61,46 @@
                 <h2>Thống kê sản phẩm</h2>
 
                 <div id="tabs">
-                    <div class="tab active" onclick="openTab('tab1')">Xuất xứ</div>
+                    <div class="tab active" onclick="redirectToThongKeSanPham()">Xuất xứ</div>
+
                     <div class="tab" onclick="openTab('tab2')">Thương hiệu</div>
                 </div>
 
                 <div id="tab1" class="tab-content" style="display: block;">
                     <h4>Xuất xứ</h4>
+
                     <?php
+                    if (isset($_GET['xuatxu'])) {
+                        $xuatxu = $_GET['xuatxu'];
+
                         include "../connect.php";
 
-                        $sql = "SELECT th.xuatxu, COUNT(th.id) AS soluong_thuonghieu
+                        // Query để lấy thông tin thương hiệu theo xuất xứ
+                        $sql = "SELECT th.id, th.tenthuonghieu, COUNT(sp.id) AS soluong
                                 FROM thuonghieu th
-                                GROUP BY th.xuatxu";
+                                LEFT JOIN sanpham sp ON th.id = sp.thuonghieu_id
+                                WHERE th.xuatxu = '$xuatxu'
+                                GROUP BY th.id";
 
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
                             echo "<table class='table table-hover'>";
-                            echo "<tr><th>STT</th><th>Xuất Xứ</th><th>Số Lượng Thương Hiệu</th><th>Chi tiết</th></tr>";
+                            echo "<tr><th>STT</th><th>Thương Hiệu</th><th>Số Lượng Sản Phẩm</th><th>Chi tiết</th></tr>";
                             $Stt = 1;
                             $TongSL = 0;
                             while ($row = $result->fetch_assoc()) {
-                                echo "<tr><td>". $Stt ."</td><td>" . $row["xuatxu"] . "</td><td>" . $row["soluong_thuonghieu"] . "</td>";
-                                echo"<td>";
+                                echo "<tr><td>" . $Stt . "</td><td>" . $row["tenthuonghieu"] . "</td><td>" . $row["soluong"] . "</td>";
+                                echo "<td>";
                                 
-                                echo "<a class='btn btn-primary' href='./quanlythuonghieu.php?xuatxu=" . $row["xuatxu"] . "'>Chi tiết</a>";
-
+                                if (isset($row["id"])) {
+                                    echo "<a class='btn btn-primary' href='./quanlysanpham.php?brand_id=" . $row["id"] . "'>Chi tiết</a>";
+                                } else {
+                                    echo "ID không tồn tại";
+                                }
+                                
                                 echo "</td>";
-                                $TongSL += $row["soluong_thuonghieu"];
+                                $TongSL += $row["soluong"];
                                 $Stt++;
                                 echo "</tr>";
                             }
@@ -98,7 +110,10 @@
                             echo "0 results";
                         }
 
-                        $conn->close();                        
+                        $conn->close();
+                    } else {
+                        echo "Không có thông tin xuất xứ được chọn.";
+                    }
                     ?>
                 </div>
 
@@ -143,14 +158,19 @@
                         $conn->close();
                     ?>
                 </div>
+
             </div>
         </div>
     </div>
 
     <script>
+        function redirectToThongKeSanPham() {
+            window.location.href = 'thongkesanpham.php';
+        }
         document.addEventListener('DOMContentLoaded', function () {
-                openTab('tab1');
+            openTab('tab1');
         });
+
         function openTab(tabId) {
             var tabContents = document.getElementsByClassName("tab-content");
             for (var i = 0; i < tabContents.length; i++) {
@@ -165,8 +185,13 @@
             document.getElementById(tabId).style.display = "block";
             document.querySelector(".tab[data-tab='" + tabId + "']").classList.add("active");
         }
-    </script>
 
+        // Thêm sự kiện để chuyển đến tab xuất xứ khi bấm vào thẻ "Xuất xứ" trong file quanlythuonghieu.php
+        document.getElementById('xuatxuTab').addEventListener('click', function () {
+            openTab('tab1');
+        });
+    </script>
+    
 </body>
 
 </html>
